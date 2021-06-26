@@ -21,6 +21,21 @@ function teamMembers(){
        name:`employeeName`,
        message:`What is your Full Name`,
   },
+   {
+    type:`input`,
+    name:`employeeID`,
+    message:'What is your employee Id?'
+   },
+   {
+    type:`input`,
+    name:`managerEmail`,
+    message:`What is your email?`,
+   },
+   {
+       type:`input`
+       name:'officeNumber',
+     message:`What is your office number?`
+   }
 
     /* Pass your questions in here */
   ])
