@@ -9,6 +9,36 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { type } = require("os");
+
+let employees = [];
+
+function teamMembers(){
+    inquirer
+  .prompt([ 
+      {
+       type:`input`,
+       name:`employeeName`,
+       message:`What is your Full Name`,
+  },
+
+    /* Pass your questions in here */
+  ])
+  .then((answers) => {
+    // Use user feedback for... whatever!!
+  })
+  .catch((error) => {
+    if (error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else went wrong
+    }
+  });
+
+}
+
+
+  
 
 
 // Write code to use inquirer to gather information about the development team members,
