@@ -122,7 +122,7 @@ message:'What is your employee Id?'
 },
 {
 type:`input`,
-name:`engineerEmail`,
+name:`employeeEmail`,
 message:`What is your email?`,
 },
 {
@@ -131,6 +131,25 @@ message:`What is your email?`,
  message:`What is your github account?`
 }
 
+function teamEmployee(){
+  inquirer
+.prompt(
+  [ 
+    {
+     type:`input`,
+     name:`employeeName`,
+     message:`What is your Full Name`,
+},
+ {
+  type:`input`,
+  name:`employeeID`,
+  message:'What is your employee Id?'
+ },
+ {
+  type:`input`,
+  name:`employeeEmail`,
+  message:`What is your email?`,
+ },
 
 
 
