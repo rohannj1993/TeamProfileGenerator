@@ -13,9 +13,26 @@ const { type } = require("os");
 
 let employees = [];
 
-function teamMembers(){
+function positionFinder (){
+ inquirer
+ .prompt({
+    type:`list`,
+    name: `employeePosition`,
+    message:`What is your position within the company?`,
+    choices: [`Team Manager`,`Engineer`,`Employee`,`Intern`]
+ })
+.then(companyPosition =>{
+  if(companyPosition.name === `Team Manager`){
+    teamManager()
+  } else if(companyPosition.name ===`Engineer`){teamEngineer()
+  } else if(companyPosition.name ===`Employee`){teamEmployee()
+  } else (companyPosition.name ===`Intern`){teamIntern()
+
+
+function teamManager(){
     inquirer
-  .prompt([ 
+  .prompt(
+    [ 
       {
        type:`input`,
        name:`employeeName`,
@@ -32,10 +49,36 @@ function teamMembers(){
     message:`What is your email?`,
    },
    {
-       type:`input`
+       type:`input`,
        name:'officeNumber',
      message:`What is your office number?`
    }
+
+   
+function teamEngineer(){
+  inquirer
+.prompt(
+  [ 
+    {
+     type:`input`,
+     name:`employeeName`,
+     message:`What is your Full Name`,
+},
+ {
+  type:`input`,
+  name:`employeeID`,
+  message:'What is your employee Id?'
+ },
+ {
+  type:`input`,
+  name:`engineerEmail`,
+  message:`What is your email?`,
+ },
+ {
+     type:`input`,
+     name:'githubAccount',
+   message:`What is your github account?`
+ }
 
     /* Pass your questions in here */
   ])
@@ -52,7 +95,7 @@ function teamMembers(){
 
 }
 
-
+positionFinder()
   
 
 
