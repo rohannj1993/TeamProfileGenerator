@@ -80,6 +80,71 @@ function teamEngineer(){
    message:`What is your github account?`
  }
 
+ function teamIntern(){
+  inquirer
+.prompt(
+  [ 
+    {
+     type:`input`,
+     name:`employeeName`,
+     message:`What is your Full Name`,
+},
+ {
+  type:`input`,
+  name:`employeeID`,
+  message:'What is your employee Id?'
+ },
+ {
+  type:`input`,
+  name:`Email`,
+  message:`What is your email?`,
+ },
+ {
+     type:`input`,
+     name:'collegeName',
+   message:`Where did you go to college?`
+ }
+
+ 
+function teamEngineer(){
+inquirer
+.prompt(
+[ 
+  {
+   type:`input`,
+   name:`employeeName`,
+   message:`What is your Full Name`,
+},
+{
+type:`input`,
+name:`employeeID`,
+message:'What is your employee Id?'
+},
+{
+type:`input`,
+name:`engineerEmail`,
+message:`What is your email?`,
+},
+{
+   type:`input`,
+   name:'githubAccount',
+ message:`What is your github account?`
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* Pass your questions in here */
   ])
   .then((answers) => {
