@@ -9,178 +9,120 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const { type } = require("os");
+
 
 let employees = [];
 
-function positionFinder (){
- inquirer
- .prompt({
-    type:`list`,
-    name: `employeePosition`,
-    message:`What is your position within the company?`,
-    choices: [`Team Manager`,`Engineer`,`Employee`,`Intern`]
- })
-.then(companyPosition =>{
-  if(companyPosition.name === `Team Manager`){
-    teamManager()
-  } else if(companyPosition.name ===`Engineer`){teamEngineer()
-  } else if(companyPosition.name ===`Employee`){teamEmployee()
-  } else (companyPosition.name ===`Intern`){teamIntern()
-
-
-function teamManager(){
-    inquirer
-  .prompt(
-    [ 
-      {
-       type:`input`,
-       name:`employeeName`,
-       message:`What is your Full Name`,
-  },
-   {
-    type:`input`,
-    name:`employeeID`,
-    message:'What is your employee Id?'
-   },
-   {
-    type:`input`,
-    name:`managerEmail`,
-    message:`What is your email?`,
-   },
-   {
-       type:`input`,
-       name:'officeNumber',
-     message:`What is your office number?`
-   }
-
-   
-function teamEngineer(){
+function positionFinder() {
   inquirer
-.prompt(
-  [ 
-    {
-     type:`input`,
-     name:`employeeName`,
-     message:`What is your Full Name`,
-},
- {
-  type:`input`,
-  name:`employeeID`,
-  message:'What is your employee Id?'
- },
- {
-  type:`input`,
-  name:`engineerEmail`,
-  message:`What is your email?`,
- },
- {
-     type:`input`,
-     name:'githubAccount',
-   message:`What is your github account?`
- }
-
- function teamIntern(){
-  inquirer
-.prompt(
-  [ 
-    {
-     type:`input`,
-     name:`employeeName`,
-     message:`What is your Full Name`,
-},
- {
-  type:`input`,
-  name:`employeeID`,
-  message:'What is your employee Id?'
- },
- {
-  type:`input`,
-  name:`Email`,
-  message:`What is your email?`,
- },
- {
-     type:`input`,
-     name:'collegeName',
-   message:`Where did you go to college?`
- }
-
- 
-function teamEngineer(){
-inquirer
-.prompt(
-[ 
-  {
-   type:`input`,
-   name:`employeeName`,
-   message:`What is your Full Name`,
-},
-{
-type:`input`,
-name:`employeeID`,
-message:'What is your employee Id?'
-},
-{
-type:`input`,
-name:`employeeEmail`,
-message:`What is your email?`,
-},
-{
-   type:`input`,
-   name:'githubAccount',
- message:`What is your github account?`
+    .prompt({
+      type: `list`,
+      name: `employeePosition`,
+      message: `What position do you want to add?`,
+      choices: [`Team Manager`, `Engineer`, `Intern`]
+    })
+    .then(companyPosition => {
+      if (companyPosition.name === `Team Manager`) {
+        teamManager()
+      } else if (companyPosition.name === `Engineer`) { teamEngineer() }
+      else if (companyPosition.name === `Intern`) { teamIntern() }
+    })
 }
 
-function teamEmployee(){
-  inquirer
-.prompt(
-  [ 
-    {
-     type:`input`,
-     name:`employeeName`,
-     message:`What is your Full Name`,
-},
- {
-  type:`input`,
-  name:`employeeID`,
-  message:'What is your employee Id?'
- },
- {
-  type:`input`,
-  name:`employeeEmail`,
-  message:`What is your email?`,
- },
+      function teamManager() {
+        inquirer
+          .prompt(
+            [
+              {
+                type: `input`,
+                name: `employeeName`,
+                message: `What is your Full Name`,
+              },
+              {
+                type: `input`,
+                name: `employeeID`,
+                message: 'What is your employee Id?'
+              },
+              {
+                type: `input`,
+                name: `managerEmail`,
+                message: `What is your email?`,
+              },
+              {
+                type: `input`,
+                name: 'officeNumber',
+                message: `What is your office number?`
+              }
+            ]
+          ).then((answers) => {
+            console.log(answers)
+          })
+      }
 
 
+      function teamEngineer() {
+        inquirer
+          .prompt(
+            [
+              {
+                type: `input`,
+                name: `employeeName`,
+                message: `What is your Full Name`,
+              },
+              {
+                type: `input`,
+                name: `employeeID`,
+                message: 'What is your employee Id?'
+              },
+              {
+                type: `input`,
+                name: `engineerEmail`,
+                message: `What is your email?`,
+              },
+              {
+                type: `input`,
+                name: 'githubAccount',
+                message: `What is your github account?`
+              }
+            ]
+          ).then((answers) => {
+            console.log(answers)
+          })
+      }
 
 
+      function teamIntern() {
+        inquirer
+          .prompt(
+            [
+              {
+                type: `input`,
+                name: `employeeName`,
+                message: `What is your Full Name`,
+              },
+              {
+                type: `input`,
+                name: `employeeID`,
+                message: 'What is your employee Id?'
+              },
+              {
+                type: `input`,
+                name: `Email`,
+                message: `What is your email?`,
+              },
+              {
+                type: `input`,
+                name: 'collegeName',
+                message: `Where did you go to college?`
+              }
+            ]
+          ).then((answers) => {
+            console.log(answers)
+          })
+      }
 
+      positionFinder()
 
-
-
-
-
-
-
-
-
-    /* Pass your questions in here */
-  ])
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
-
-}
-
-positionFinder()
-  
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -204,4 +146,5 @@ positionFinder()
 // and Intern classes should all extend from a class named Employee; see the directions
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
+// for the provided `render` function to work! ``` 
+  
